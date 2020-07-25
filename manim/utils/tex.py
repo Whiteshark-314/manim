@@ -101,7 +101,9 @@ class TexTemplate(TexTemplateFromFile):
             "ragged2e",
             "physics",
             "xcolor",
-            "microtype"
+            "microtype",
+            "chemfig",
+            "circuitikz"
         ],
         "tex_packages": [],
         "ctex_packages": [["ctex",["UTF8"]]],

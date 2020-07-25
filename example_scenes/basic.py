@@ -104,12 +104,13 @@ class WriteStuff(Scene):
         example_tex = TexMobject(
             "\\sum_{k=1}^\\infty {1 \\over k^2} = {\\pi^2 \\over 6}",
         )
-        group = VGroup(example_text, example_tex)
-        group.arrange(DOWN)
-        group.set_width(config['frame_width'] - 2 * LARGE_BUFF)
+        example_chem_tex=TexMobject(r"\chemfig{H-[:37]O-[::-74]H}")
+        group = VGroup(example_text, example_tex,example_chem_tex)
 
         self.play(Write(example_text))
+        self.play(FadeOut(example_text))
         self.play(Write(example_tex))
+        self.play(Transform(example_tex,example_chem_tex))
         self.wait()
 
 
@@ -152,15 +153,15 @@ class VDictTest(Scene):
         text = TextMobject("Some text").set_color(GREEN).next_to(square, DOWN)
 
         #add like a VGroup
-        my_dict.add(('t', text))                        
+        my_dict.add(('t', text))
         self.wait()
-        
+
         rect = Rectangle().next_to(text, DOWN)
         # can also do key assignment like a python dict
-        my_dict['r'] = rect                             
+        my_dict['r'] = rect
 
         # access submobjects like a python dict
-        my_dict['t'].set_color(PURPLE)                  
+        my_dict['t'].set_color(PURPLE)
         self.play(my_dict['t'].scale, 3)
         self.wait()
 
@@ -169,7 +170,7 @@ class VDictTest(Scene):
         self.wait()
 
         # remove submojects by key
-        my_dict.remove('t')                             
+        my_dict.remove('t')
         self.wait()
 
         self.play(Uncreate(my_dict['s']))
