@@ -103,7 +103,8 @@ dmypy.json
 *.pyc
 *.bak
 .DS_Store
-
+config.py
+default.cfg
 .floo
 .flooignore
 .vscode
